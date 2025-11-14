@@ -1,0 +1,8 @@
+[
+    {
+        "id": 1,
+        "titulo": "Estudiar para el examen",
+        "descripcion": "Repasar temas de PHP y SQL",
+        "prioridad": "alta"
+    }
+]
