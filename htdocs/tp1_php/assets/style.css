@@ -1,0 +1,101 @@
+/* Importa la fuente estilo */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    background-color: #000 !important;  /* Fondo negro total */
+    color: #c77dff !important;          /* Letra violeta */
+    font-family: 'Poppins', sans-serif !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #111 !important;   /* Caja negra */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #6a0dad;
+    margin-top: 25px;
+}
+
+/* NAVBAR */
+nav.navbar {
+    background-color: #000 !important;
+    border-bottom: 2px solid #6a0dad;
+}
+
+.navbar-brand {
+    color: #e0aaff !important;
+    font-weight: 600;
+    text-shadow: 0 0 10px #8a2be2;
+}
+
+/* Formulario */
+form input,
+form textarea,
+form select {
+    background-color: #1a1a1a !important;
+    border: 1px solid #6a0dad !important;
+    color: #e0aaff !important;
+    border-radius: 10px !important;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #b78bff !important;
+}
+
+form button {
+    background-color: #6a0dad !important;
+    border: none;
+    border-radius: 10px !important;
+    color: white !important;
+    font-weight: 600;
+    padding: 10px 20px;
+    width: 100%;
+    box-shadow: 0 0 10px #6a0dad;
+    transition: 0.2s;
+}
+form button:hover {
+    background-color: #8a2be2 !important;
+    box-shadow: 0 0 15px #b174ff;
+}
+
+/* Lista de tareas */
+.list-group-item {
+    background-color: #1a1a1a !important;
+    border: 1px solid #6a0dad !important;
+    color: #e0aaff !important;
+    border-radius: 10px !important;
+    margin-bottom: 10px;
+}
+
+/* Botón para borrar */
+.btn-danger {
+    background-color: #b300ff !important;
+    border: none !important;
+    border-radius: 8px !important;
+}
+.btn-danger:hover {
+    background-color: #d15cff !important;
+}
+
+/* Footer */
+footer {
+    background-color: #000 !important;        /* negro real */
+    color: #c77dff !important;                /* violeta cute */
+    border-top: 1px solid #6a0dad !important; /* borde violeta */
+    padding: 12px;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #6a0dad;            /* brillito violeta */
+    font-size: 0.9rem;
+}
+
+select option:checked {
+    background-color: #6a0dad !important; 
+    color: #fff !important;
+}
+
+
