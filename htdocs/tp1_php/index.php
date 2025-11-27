@@ -1,10 +1,10 @@
 <?php
 /*
 TP
-Profesor: Bruno Cano 
-Materia:Programacion
-Nombre: Lourdes Micaela Olmos Aguilera.
-Tema: Agenda de tareas
+Profesor:Bruno Cano 
+Estudiante: Lourdes Micaela Olmos Aguilera 
+Curso: 5to Año
+Materia: Programación
 */
 
 include "includes/header.php";   // Encabezado del sitio
@@ -36,7 +36,7 @@ $tareas = cargarTareas($archivo);
 </head>
 <body>
 <div class="container mt-4">
-    <h2>Lista 💜</h2>
+    <h2>Nueva tarea</h2>
 
     <!-- Formulario para cargar una nueva tarea-->
     <form action="agregar.php" method="POST" class="mb-4">
@@ -45,12 +45,12 @@ $tareas = cargarTareas($archivo);
 
         <!--Array indexado -->
         <select name="prioridad" class="form-select mb-2">
-            <option value="No importante">No importante🌸</option>
-            <option value="Importante">Importante⭐</option>
-            <option value="Re importante">Re importante✨</option>
+            <option value="No importante">No importante</option>
+            <option value="Importante">Importante</option>
+            <option value="Re importante">Muy importante</option>
         </select>
 
-        <button type="submit" class="btn btn-primary">Agregar tarea</button>
+        <button type="submit" class="btn btn-primary">Nueva tarea </button>
     </form>
 
     <!-- Si no hay tareas avisa -->
@@ -59,7 +59,7 @@ $tareas = cargarTareas($archivo);
 
     <?php 
     if (empty($tareas)): ?>
-        <p>No hay nada ponete contento:D.</p>
+        <p>No hay ninguna tarea:D.</p>
 
     <!-- Si hay tareas, las muestra -->
     <?php else: ?>

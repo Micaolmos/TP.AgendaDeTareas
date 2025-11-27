@@ -1,35 +1,38 @@
 <?php
-// Se agrega una nueva tarea al archivo JSON
 require_once "clases/Tarea.php";
 
-$archivo = "data/tareas.json";
+$archivo = __DIR__ . "/data/tareas.json";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // Toma los datos del formulario
-    $titulo = trim($_POST["titulo"]);
-    $descripcion = trim($_POST["descripcion"]);
-    $prioridad = $_POST["prioridad"];
+    // Toma los datos 
+    $titulo = isset($_POST["titulo"]) ? trim($_POST["titulo"]) : "";
+    $descripcion = isset($_POST["descripcion"]) ? trim($_POST["descripcion"]) : "";
+    $prioridad = isset($_POST["prioridad"]) ? $_POST["prioridad"] : "";
 
-    // Si el título está vacío, se vuelve al inicio
+    // Si no se completa el titulo se toma como error 
     if ($titulo === "") {
         header("Location: index.php");
         exit;
     }
 
-    // Carga las tareas 
+    // Cargan las tareas
     $tareas = [];
     if (file_exists($archivo)) {
-        $tareas = json_decode(file_get_contents($archivo), true);
+        $contenido = file_get_contents($archivo);
+        $tareas = json_decode($contenido, true);
+        if (!is_array($tareas)) {
+            $tareas = [];
+        }
     }
 
-    // Crea un nuevo ID 
-    $id = count($tareas) + 1;
+    // Crea un id
+    $id = time();
 
-    // Crea objeto a la  tarea (POO)
+    // Crea la tarea 
     $tarea = new Tarea($id, $titulo, $descripcion, $prioridad);
 
-    // Guarda la nueva tarea como array asociativo
+    // Guarda las tareas 
     $tareas[] = [
         "id" => $tarea->getId(),
         "titulo" => $tarea->getTitulo(),
@@ -37,15 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         "prioridad" => $tarea->getPrioridad()
     ];
 
-    // Lo guarda en JSON
+    // Guarda en el JSON
     file_put_contents($archivo, json_encode($tareas, JSON_PRETTY_PRINT));
 
-    // Vuelve al inicio
-    header("Location: index.php");
-    exit;
-
-} else {
+    // Vuelve al inicio 
     header("Location: index.php");
     exit;
 }
+?>
 
